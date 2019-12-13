@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160C350D23A33CDF008DF271 /* internal_gene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160C350B23A33CDF008DF271 /* internal_gene.cpp */; };
+		160C351023A40248008DF271 /* ext_input_gene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160C350E23A40248008DF271 /* ext_input_gene.cpp */; };
+		160C351323A40254008DF271 /* ext_output_gene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160C351123A40254008DF271 /* ext_output_gene.cpp */; };
 		1616B9CF23A19C27000D2288 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1616B9CE23A19C27000D2288 /* main.cpp */; };
+		1616B9D923A19C8E000D2288 /* substrate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1616B9D723A19C8E000D2288 /* substrate.cpp */; };
+		16F8D33223A210700030ABAE /* Rand_Gen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F8D33023A20F750030ABAE /* Rand_Gen.cpp */; };
+		16F8D33923A216B70030ABAE /* weight_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F8D33723A216B70030ABAE /* weight_generator.cpp */; };
+		16F8D33D23A2D7C10030ABAE /* linker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F8D33B23A2D7C10030ABAE /* linker.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +30,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		160C350B23A33CDF008DF271 /* internal_gene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = internal_gene.cpp; sourceTree = "<group>"; };
+		160C350C23A33CDF008DF271 /* internal_gene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = internal_gene.hpp; sourceTree = "<group>"; };
+		160C350E23A40248008DF271 /* ext_input_gene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ext_input_gene.cpp; sourceTree = "<group>"; };
+		160C350F23A40248008DF271 /* ext_input_gene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ext_input_gene.hpp; sourceTree = "<group>"; };
+		160C351123A40254008DF271 /* ext_output_gene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ext_output_gene.cpp; sourceTree = "<group>"; };
+		160C351223A40254008DF271 /* ext_output_gene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ext_output_gene.hpp; sourceTree = "<group>"; };
 		1616B9CB23A19C27000D2288 /* sub_network_test3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sub_network_test3; sourceTree = BUILT_PRODUCTS_DIR; };
 		1616B9CE23A19C27000D2288 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1616B9D723A19C8E000D2288 /* substrate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = substrate.cpp; sourceTree = "<group>"; };
+		1616B9D823A19C8E000D2288 /* substrate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = substrate.hpp; sourceTree = "<group>"; };
+		16F8D33023A20F750030ABAE /* Rand_Gen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rand_Gen.cpp; sourceTree = "<group>"; };
+		16F8D33123A20F750030ABAE /* Rand_Gen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rand_Gen.hpp; sourceTree = "<group>"; };
+		16F8D33423A2122A0030ABAE /* mutation_values.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mutation_values.hpp; sourceTree = "<group>"; };
+		16F8D33723A216B70030ABAE /* weight_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = weight_generator.cpp; sourceTree = "<group>"; };
+		16F8D33823A216B70030ABAE /* weight_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = weight_generator.hpp; sourceTree = "<group>"; };
+		16F8D33B23A2D7C10030ABAE /* linker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = linker.cpp; sourceTree = "<group>"; };
+		16F8D33C23A2D7C10030ABAE /* linker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = linker.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +60,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160C350723A33C9C008DF271 /* gene_types */ = {
+			isa = PBXGroup;
+			children = (
+				160C350823A33CAC008DF271 /* ext_input_gene */,
+				160C350A23A33CBE008DF271 /* internal_gene */,
+				160C350923A33CB9008DF271 /* ext_output_gene */,
+				16F8D33623A215940030ABAE /* weight_generator */,
+				16F8D33A23A2D7010030ABAE /* linker */,
+			);
+			path = gene_types;
+			sourceTree = "<group>";
+		};
+		160C350823A33CAC008DF271 /* ext_input_gene */ = {
+			isa = PBXGroup;
+			children = (
+				160C350F23A40248008DF271 /* ext_input_gene.hpp */,
+				160C350E23A40248008DF271 /* ext_input_gene.cpp */,
+			);
+			path = ext_input_gene;
+			sourceTree = "<group>";
+		};
+		160C350923A33CB9008DF271 /* ext_output_gene */ = {
+			isa = PBXGroup;
+			children = (
+				160C351223A40254008DF271 /* ext_output_gene.hpp */,
+				160C351123A40254008DF271 /* ext_output_gene.cpp */,
+			);
+			path = ext_output_gene;
+			sourceTree = "<group>";
+		};
+		160C350A23A33CBE008DF271 /* internal_gene */ = {
+			isa = PBXGroup;
+			children = (
+				160C350C23A33CDF008DF271 /* internal_gene.hpp */,
+				160C350B23A33CDF008DF271 /* internal_gene.cpp */,
+			);
+			name = internal_gene;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		1616B9C223A19C27000D2288 = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +120,48 @@
 			isa = PBXGroup;
 			children = (
 				1616B9CE23A19C27000D2288 /* main.cpp */,
+				16F8D33423A2122A0030ABAE /* mutation_values.hpp */,
+				160C350723A33C9C008DF271 /* gene_types */,
+				16F8D32F23A20F750030ABAE /* Random_Generator */,
 			);
 			path = sub_network_test3;
+			sourceTree = "<group>";
+		};
+		1616B9D623A19C3A000D2288 /* substrate */ = {
+			isa = PBXGroup;
+			children = (
+				1616B9D823A19C8E000D2288 /* substrate.hpp */,
+				1616B9D723A19C8E000D2288 /* substrate.cpp */,
+			);
+			path = substrate;
+			sourceTree = "<group>";
+		};
+		16F8D32F23A20F750030ABAE /* Random_Generator */ = {
+			isa = PBXGroup;
+			children = (
+				16F8D33023A20F750030ABAE /* Rand_Gen.cpp */,
+				16F8D33123A20F750030ABAE /* Rand_Gen.hpp */,
+			);
+			path = Random_Generator;
+			sourceTree = "<group>";
+		};
+		16F8D33623A215940030ABAE /* weight_generator */ = {
+			isa = PBXGroup;
+			children = (
+				16F8D33823A216B70030ABAE /* weight_generator.hpp */,
+				16F8D33723A216B70030ABAE /* weight_generator.cpp */,
+				1616B9D623A19C3A000D2288 /* substrate */,
+			);
+			path = weight_generator;
+			sourceTree = "<group>";
+		};
+		16F8D33A23A2D7010030ABAE /* linker */ = {
+			isa = PBXGroup;
+			children = (
+				16F8D33C23A2D7C10030ABAE /* linker.hpp */,
+				16F8D33B23A2D7C10030ABAE /* linker.cpp */,
+			);
+			path = linker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +221,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F8D33223A210700030ABAE /* Rand_Gen.cpp in Sources */,
+				160C350D23A33CDF008DF271 /* internal_gene.cpp in Sources */,
+				1616B9D923A19C8E000D2288 /* substrate.cpp in Sources */,
+				160C351323A40254008DF271 /* ext_output_gene.cpp in Sources */,
+				16F8D33D23A2D7C10030ABAE /* linker.cpp in Sources */,
 				1616B9CF23A19C27000D2288 /* main.cpp in Sources */,
+				16F8D33923A216B70030ABAE /* weight_generator.cpp in Sources */,
+				160C351023A40248008DF271 /* ext_input_gene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +341,7 @@
 		1616B9D323A19C27000D2288 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -240,6 +350,7 @@
 		1616B9D423A19C27000D2288 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
