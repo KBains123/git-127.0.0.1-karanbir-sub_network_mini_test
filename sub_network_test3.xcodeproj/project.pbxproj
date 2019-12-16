@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		160C350D23A33CDF008DF271 /* internal_gene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160C350B23A33CDF008DF271 /* internal_gene.cpp */; };
-		160C351023A40248008DF271 /* ext_input_gene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160C350E23A40248008DF271 /* ext_input_gene.cpp */; };
-		160C351323A40254008DF271 /* ext_output_gene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160C351123A40254008DF271 /* ext_output_gene.cpp */; };
+		160C351F23A57702008DF271 /* internal_gene_list.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160C351D23A57702008DF271 /* internal_gene_list.cpp */; };
+		160C352223A74289008DF271 /* genome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160C352023A74289008DF271 /* genome.cpp */; };
 		1616B9CF23A19C27000D2288 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1616B9CE23A19C27000D2288 /* main.cpp */; };
 		1616B9D923A19C8E000D2288 /* substrate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1616B9D723A19C8E000D2288 /* substrate.cpp */; };
 		16F8D33223A210700030ABAE /* Rand_Gen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F8D33023A20F750030ABAE /* Rand_Gen.cpp */; };
@@ -30,12 +29,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		160C350B23A33CDF008DF271 /* internal_gene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = internal_gene.cpp; sourceTree = "<group>"; };
-		160C350C23A33CDF008DF271 /* internal_gene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = internal_gene.hpp; sourceTree = "<group>"; };
-		160C350E23A40248008DF271 /* ext_input_gene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ext_input_gene.cpp; sourceTree = "<group>"; };
-		160C350F23A40248008DF271 /* ext_input_gene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ext_input_gene.hpp; sourceTree = "<group>"; };
-		160C351123A40254008DF271 /* ext_output_gene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ext_output_gene.cpp; sourceTree = "<group>"; };
-		160C351223A40254008DF271 /* ext_output_gene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ext_output_gene.hpp; sourceTree = "<group>"; };
+		160C351D23A57702008DF271 /* internal_gene_list.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = internal_gene_list.cpp; sourceTree = "<group>"; };
+		160C351E23A57702008DF271 /* internal_gene_list.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = internal_gene_list.hpp; sourceTree = "<group>"; };
+		160C352023A74289008DF271 /* genome.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = genome.cpp; sourceTree = "<group>"; };
+		160C352123A74289008DF271 /* genome.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = genome.hpp; sourceTree = "<group>"; };
 		1616B9CB23A19C27000D2288 /* sub_network_test3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sub_network_test3; sourceTree = BUILT_PRODUCTS_DIR; };
 		1616B9CE23A19C27000D2288 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1616B9D723A19C8E000D2288 /* substrate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = substrate.cpp; sourceTree = "<group>"; };
@@ -60,50 +57,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		160C350723A33C9C008DF271 /* gene_types */ = {
+		160C350723A33C9C008DF271 /* genome */ = {
 			isa = PBXGroup;
 			children = (
-				160C350823A33CAC008DF271 /* ext_input_gene */,
-				160C350A23A33CBE008DF271 /* internal_gene */,
-				160C350923A33CB9008DF271 /* ext_output_gene */,
+				160C352123A74289008DF271 /* genome.hpp */,
+				160C352023A74289008DF271 /* genome.cpp */,
+				160C351C23A576E4008DF271 /* internal_gene */,
+				160C352323A7429C008DF271 /* gene_content */,
+			);
+			path = genome;
+			sourceTree = "<group>";
+		};
+		160C351C23A576E4008DF271 /* internal_gene */ = {
+			isa = PBXGroup;
+			children = (
+				160C351E23A57702008DF271 /* internal_gene_list.hpp */,
+				160C351D23A57702008DF271 /* internal_gene_list.cpp */,
+			);
+			path = internal_gene;
+			sourceTree = "<group>";
+		};
+		160C352323A7429C008DF271 /* gene_content */ = {
+			isa = PBXGroup;
+			children = (
 				16F8D33623A215940030ABAE /* weight_generator */,
 				16F8D33A23A2D7010030ABAE /* linker */,
 			);
-			path = gene_types;
-			sourceTree = "<group>";
-		};
-		160C350823A33CAC008DF271 /* ext_input_gene */ = {
-			isa = PBXGroup;
-			children = (
-				160C350F23A40248008DF271 /* ext_input_gene.hpp */,
-				160C350E23A40248008DF271 /* ext_input_gene.cpp */,
-			);
-			path = ext_input_gene;
-			sourceTree = "<group>";
-		};
-		160C350923A33CB9008DF271 /* ext_output_gene */ = {
-			isa = PBXGroup;
-			children = (
-				160C351223A40254008DF271 /* ext_output_gene.hpp */,
-				160C351123A40254008DF271 /* ext_output_gene.cpp */,
-			);
-			path = ext_output_gene;
-			sourceTree = "<group>";
-		};
-		160C350A23A33CBE008DF271 /* internal_gene */ = {
-			isa = PBXGroup;
-			children = (
-				160C350C23A33CDF008DF271 /* internal_gene.hpp */,
-				160C350B23A33CDF008DF271 /* internal_gene.cpp */,
-			);
-			name = internal_gene;
-			path = "New Group";
+			path = gene_content;
 			sourceTree = "<group>";
 		};
 		1616B9C223A19C27000D2288 = {
 			isa = PBXGroup;
 			children = (
 				1616B9CD23A19C27000D2288 /* sub_network_test3 */,
+				16F8D32F23A20F750030ABAE /* Random_Generator */,
 				1616B9CC23A19C27000D2288 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,8 +108,7 @@
 			children = (
 				1616B9CE23A19C27000D2288 /* main.cpp */,
 				16F8D33423A2122A0030ABAE /* mutation_values.hpp */,
-				160C350723A33C9C008DF271 /* gene_types */,
-				16F8D32F23A20F750030ABAE /* Random_Generator */,
+				160C350723A33C9C008DF271 /* genome */,
 			);
 			path = sub_network_test3;
 			sourceTree = "<group>";
@@ -139,8 +125,8 @@
 		16F8D32F23A20F750030ABAE /* Random_Generator */ = {
 			isa = PBXGroup;
 			children = (
-				16F8D33023A20F750030ABAE /* Rand_Gen.cpp */,
 				16F8D33123A20F750030ABAE /* Rand_Gen.hpp */,
+				16F8D33023A20F750030ABAE /* Rand_Gen.cpp */,
 			);
 			path = Random_Generator;
 			sourceTree = "<group>";
@@ -222,13 +208,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F8D33223A210700030ABAE /* Rand_Gen.cpp in Sources */,
-				160C350D23A33CDF008DF271 /* internal_gene.cpp in Sources */,
 				1616B9D923A19C8E000D2288 /* substrate.cpp in Sources */,
-				160C351323A40254008DF271 /* ext_output_gene.cpp in Sources */,
+				160C351F23A57702008DF271 /* internal_gene_list.cpp in Sources */,
 				16F8D33D23A2D7C10030ABAE /* linker.cpp in Sources */,
+				160C352223A74289008DF271 /* genome.cpp in Sources */,
 				1616B9CF23A19C27000D2288 /* main.cpp in Sources */,
 				16F8D33923A216B70030ABAE /* weight_generator.cpp in Sources */,
-				160C351023A40248008DF271 /* ext_input_gene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

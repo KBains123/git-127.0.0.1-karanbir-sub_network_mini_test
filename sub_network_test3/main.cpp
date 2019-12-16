@@ -9,7 +9,6 @@
 #include <assert.h>
 
 int main() {
-    Linker L;
     
     std::cout <<"a"<< std::endl;
 }

@@ -41,7 +41,9 @@ void WeightGenerator::mutate_existing_structures()
         }
     }
 }
-void WeightGenerator::generate_new_structures()
+
+// Generates/Deletes structures:
+void WeightGenerator::gen_del_structures()
 {
     int rand_source = get_randint(0,(int)substrates.size());
     if(b_thresh(0.5)){
@@ -140,9 +142,35 @@ float get_weight(WeightGenerator& w1,WeightGenerator& w2)
     return return_val;
 }
 
+//Scales gene output to %50 of current value:
+void scale_gene_output(WeightGenerator& w)
+{
+    w.response_weight *= 0.5;
+    assert(!isnan(w.response_weight));
+}
 
-
-
+/*Randomly deletes or appends a gene*/
+void gen_del_gene(Genes& gene)
+{
+    int curr_gene_size = (int)mut_genes.size();
+    int rand_gene = get_randint(0,curr_gene_size);
+    if(b_thresh(0.5)){
+        
+        //Delete gene:
+        if(mut_genes.size()>0)
+            mut_genes.erase(mut_genes.begin()+rand_gene);
+    }else{
+        
+        //Appends and mutates new gene:
+        mut_genes.push_back(mut_genes[rand_gene]);
+        
+        //Minimising initial mutation effect:
+        scale_gene_output(mut_genes[rand_gene]);
+        scale_gene_output(mut_genes.back());
+        mut_genes.back().mutate_existing_structures();
+    }
+    assert(mut_genes.size()!=curr_gene_size);
+}
 
 
 

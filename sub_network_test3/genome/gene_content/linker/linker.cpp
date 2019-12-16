@@ -7,9 +7,10 @@
 #include "mutation_values.hpp"
 #include <assert.h>
 
-void Linker::append_linker(const float val)
+void Linker::append_linker(const int source_pos)
 {
-    linkers.push_back(val);
+    float source_val = linkers[source_val];
+    linkers.push_back(source_val);
 }
 void Linker::delete_linker(const int pos)
 {
@@ -40,6 +41,14 @@ float get_link_weight(Linker& L1, Linker& L2)
     
     assert(in_range(return_val,0,1));
     return return_val;
+}
+Linker::Linker(const int num_layer_pos,const int active_point):
+linkers(num_layer_pos,0.0)
+{
+    if(num_layer_pos>0){
+        assert(active_point<linkers.size());
+        linkers[active_point] = 1.0;
+    }
 }
 
 
