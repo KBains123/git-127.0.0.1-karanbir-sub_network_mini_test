@@ -24,7 +24,7 @@ public:
     void mutate();
     void reset_binding()                     {binding = 0;}
     void scale_out_weight(const float scale) {out_weight *= scale;}
-    float  get_output();
+    float get_output();
     
     Substrate(const Substrate &L);
     Substrate(const float _active_point,

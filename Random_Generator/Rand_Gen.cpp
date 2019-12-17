@@ -4,6 +4,7 @@
 
 #include "Rand_Gen.hpp"
 #include "mutation_values.hpp"
+#include <assert.h>
 #include <random>
 
 //Random number generator: generates value over uniform distribution from 0-1:
@@ -20,6 +21,8 @@ int get_randint(const int low,const int high){
     if(rand_int+low==high){
         rand_int--;
     }
+    int return_val = rand_int + low;
+    assert(in_range(return_val,low,high));
     return rand_int + low;
 }
 

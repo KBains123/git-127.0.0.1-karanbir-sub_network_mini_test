@@ -14,7 +14,7 @@ class WeightGenerator
 {
 private:
     SubVec substrates;
-    friend float get_weight(WeightGenerator& w1,WeightGenerator& w2);
+    friend float g_get_weight(WeightGenerator& w1,WeightGenerator& w2);
     friend void scale_gene_output(WeightGenerator& w);
     //Parameters determine weight generator response:
     float response_threshold;
@@ -28,7 +28,7 @@ public:
     //Randomly modifies parameters and substrates:
     void mutate_existing_structures();
     // Generates/Deletes structures:
-    void gen_del_structures();
+    void gen_del_substrates();
     
     WeightGenerator(const float _response_thresh,
                     const float _response_rate,
@@ -36,8 +36,10 @@ public:
                     const Substrate _init_substrate);
 };
 
-using Genes = std::vector<WeightGenerator>;
-float get_weight(WeightGenerator& w1,WeightGenerator& w2);
-void scale_gene_output(WeightGenerator& w);
-void gen_del_gene(Genes& genes);
+using Gene = std::vector<WeightGenerator>;
+using Genes = std::vector<Gene>;
+float g_get_weight(WeightGenerator& w1,WeightGenerator& w2);
+void g_mutate_gene(Gene& gene);
+void g_gen_del_gene(Genes& genes);
+void g_gen_del_weight_gen(Genes& genes);
 #endif /* weight_generator_hpp */

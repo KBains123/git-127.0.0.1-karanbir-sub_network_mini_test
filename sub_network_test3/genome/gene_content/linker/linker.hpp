@@ -19,6 +19,7 @@ public:
     void delete_linker(const int pos);
     void mutate();
     friend float get_link_weight(Linker& L1, Linker& L2);
+    Linker(const int num_layer_pos);
     Linker(const int num_layer_pos,const int active_point);
 };
 

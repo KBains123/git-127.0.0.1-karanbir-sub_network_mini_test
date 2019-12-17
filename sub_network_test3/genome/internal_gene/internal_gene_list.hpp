@@ -13,6 +13,7 @@ struct Layer;
 class Genome;
 using LayerVec = std::vector<Layer>;
 using PLayerVec = std::vector<Layer*>;
+
 class Internals
 {
 private:
@@ -20,18 +21,22 @@ private:
     //Pointers to all layers in current:
     PLayerVec all_layers;
     Layer* get_rand_layer();
-    Layer* get_rand_leaf_layer();
-    Genome *parent_genome;
+    int get_rand_leaf_layer();
+    Genome *parent_genome{};
+    void allocate_parent_layer(Layer* parent_layer,const int source_pos);
+    void erase_parent_layer(Layer* parent_layer,const int pos);
 public:
     void mutate_existing_genes();
     void mutate_existing_linkers();
-    void gen_del_gene();
     void gen_del_substrates();
+    void gen_del_weight_gen();
+    void gen_del_gene();
     void gen_del_layers();
     //Relinks all internals to objects defined in current:
     void link_all_layers();
-    Internals(Genome* _parent_genome,const int num_initial_layerss,const int num_initial_genes);
-    Internals(Internals& I2);
+    void set_parent(Genome* _parent_genome) {parent_genome = _parent_genome;}
+    Internals(Genome* _parent_genome,const int num_initial_layers,const int num_initial_genes);
+    Internals(const Internals& I2);
 };
 
 struct Layer
@@ -43,10 +48,12 @@ struct Layer
     Genes i_genes;
     Genes o_genes;
     LayerVec sub_layers;
-    Genes& get_rand_genes();
+    Gene& get_rand_gene();
+    Genes& get_rand_IO_genes();
     void link_to_all_layers(PLayerVec& PLayer_vec,int &curr_index);
     void gen_del_gene();
     void gen_del_substrates();
+    void gen_del_weight_gen();
     void mutate_existing_genes();
     void mutate_existing_linkers();
     Layer(const int num_initial_layers,

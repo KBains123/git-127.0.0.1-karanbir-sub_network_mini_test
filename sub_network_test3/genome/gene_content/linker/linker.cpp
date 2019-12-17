@@ -9,22 +9,26 @@
 
 void Linker::append_linker(const int source_pos)
 {
-    float source_val = linkers[source_val];
+    float source_val = linkers[source_pos];
+    assert(source_val>0);
     linkers.push_back(source_val);
 }
 void Linker::delete_linker(const int pos)
 {
     linkers.erase(linkers.begin()+pos);
+    assert(linkers.size()>0);
 }
 
 /*Randomly modifies linker values,
  no structures generated or deleted */
 void Linker::mutate()
 {
-    int rand_point = get_randint(0,(int)linkers.size());
-    linkers[rand_point] += f_rand_normal(LINKER_VALUE);
-    clamp(linkers[rand_point],0,1);
-    assert(in_range(linkers[rand_point],0,1));
+    if(linkers.size()>0){
+        int rand_point = get_randint(0,(int)linkers.size());
+        linkers[rand_point] += f_rand_normal(LINKER_VALUE);
+        clamp(linkers[rand_point],0,1);
+        assert(in_range(linkers[rand_point],0,1));
+    }
 }
 
 //Returns linking weight between two linkers:
@@ -50,7 +54,8 @@ linkers(num_layer_pos,0.0)
         linkers[active_point] = 1.0;
     }
 }
-
+Linker::Linker(const int num_layer_pos):
+linkers(num_layer_pos,0.0){}
 
 
 

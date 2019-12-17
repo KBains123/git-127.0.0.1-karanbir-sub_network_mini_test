@@ -11,6 +11,7 @@
 #include <math.h>
 
 #define MAX_SUBSTRATES  5
+void scale_gene_output(WeightGenerator& w);
 
 void WeightGenerator::mutate_existing_structures()
 {
@@ -43,7 +44,7 @@ void WeightGenerator::mutate_existing_structures()
 }
 
 // Generates/Deletes structures:
-void WeightGenerator::gen_del_structures()
+void WeightGenerator::gen_del_substrates()
 {
     int rand_source = get_randint(0,(int)substrates.size());
     if(b_thresh(0.5)){
@@ -122,7 +123,7 @@ WeightGenerator::WeightGenerator(const float _response_thresh,
 }
 
 //Returns response weight:
-float get_weight(WeightGenerator& w1,WeightGenerator& w2)
+float g_get_weight(WeightGenerator& w1,WeightGenerator& w2)
 {
     w1.zero_input_responses();
     w2.zero_input_responses();
@@ -148,35 +149,56 @@ void scale_gene_output(WeightGenerator& w)
     w.response_weight *= 0.5;
     assert(!isnan(w.response_weight));
 }
-
-/*Randomly deletes or appends a gene*/
-void gen_del_gene(Genes& gene)
+//Mutates random weight within gene:
+void g_mutate_gene(Gene& gene)
 {
-    int curr_gene_size = (int)mut_genes.size();
+    auto& mut_weight_gen = get_rand_point(gene);
+    mut_weight_gen.mutate_existing_structures();
+}
+/*Randomly deletes or appends a gene*/
+void g_gen_del_gene(Genes& genes)
+{
+    assert(genes.size()>0);
+    int curr_gene_size = (int)genes.size();
     int rand_gene = get_randint(0,curr_gene_size);
     if(b_thresh(0.5)){
         
         //Delete gene:
-        if(mut_genes.size()>0)
-            mut_genes.erase(mut_genes.begin()+rand_gene);
+        if(genes.size()>0)
+            genes.erase(genes.begin()+rand_gene);
     }else{
         
         //Appends and mutates new gene:
-        mut_genes.push_back(mut_genes[rand_gene]);
+        genes.push_back(genes[rand_gene]);
         
         //Minimising initial mutation effect:
-        scale_gene_output(mut_genes[rand_gene]);
-        scale_gene_output(mut_genes.back());
-        mut_genes.back().mutate_existing_structures();
+        auto &new_gene = genes.back();
+        auto &source_gene = genes[rand_gene];
+        std::for_each(new_gene.begin(),new_gene.end(),&scale_gene_output);
+        std::for_each(source_gene.begin(),source_gene.end(),&scale_gene_output);
+        g_mutate_gene(new_gene);
     }
-    assert(mut_genes.size()!=curr_gene_size);
+    assert(genes.size()!=curr_gene_size);
 }
-
-
-
-
-
-
+void g_gen_del_weight_gen(Genes& genes)
+{
+    auto& mut_gene = get_rand_point(genes);
+    int old_size = (int)mut_gene.size();
+    int rand_point = get_randint(0,(int)mut_gene.size());
+    if(b_thresh(0.5)){
+        if(old_size>1){
+            mut_gene.erase(mut_gene.begin()+rand_point);
+            assert(mut_gene.size()!=old_size);
+        }
+    }else{
+        auto& source_weight = mut_gene[rand_point];
+        mut_gene.push_back(source_weight);
+        
+        scale_gene_output(source_weight);
+        scale_gene_output(mut_gene.back());
+        assert(mut_gene.size()!=old_size);
+    }
+}
 
 
 
